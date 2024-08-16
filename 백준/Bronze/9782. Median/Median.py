@@ -15,6 +15,7 @@ while True:
 
     n = numbers[0]  # 첫 번째 값은 데이터의 개수
     data = numbers[1:]  # 나머지 값들이 실제 데이터
+    data.sort()
 
     median = find_median(data, n)  # 중앙값 구하기
     print(f"Case {i}: {median:.1f}")  # 소수점 1자리까지 출력
