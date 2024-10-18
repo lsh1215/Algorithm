@@ -11,20 +11,20 @@ public class Main {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		Queue<Integer> q = new LinkedList<>();
+		Queue<Integer> Q = new LinkedList<>();
 		
 		int N = Integer.parseInt(br.readLine());
 		
 		for(int i = 1; i <= N; i++) {
-			q.offer(i);
+			Q.offer(i);
 		}
 		
 		
-		while(q.size() > 1) {
-			q.poll();	// 맨 앞의 원소 버림 
-			q.offer(q.poll());	// 맨 앞의 원소를 버림과 동시에 버려진 원소를 맨 뒤에 삽입 
+		while(Q.size() > 1) {
+			Q.poll();	// 맨 앞의 원소 버림 
+			Q.offer(Q.poll());	
 		}
 		
-		System.out.println(q.poll());	// 마지막으로 남은 원소 출력 
+		System.out.println(Q.poll());	
 	}
 }
