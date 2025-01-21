@@ -12,7 +12,7 @@ public class Main {
         List<String> strings = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            String currentString = sc.nextLine();
+            String currentString = sc.next();
             if (currentString.startsWith(T)) {
                 strings.add(currentString);
             }
@@ -20,7 +20,6 @@ public class Main {
 
         // Sort the matching strings
         Collections.sort(strings);
-
         // Check if we have at least k matching strings
         System.out.println(strings.get(k - 1));
     }
