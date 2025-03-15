@@ -5,19 +5,25 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n];
+
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        // Please write your code here.
 
-        int count = 0;
+        int maxVal = 0;
+        int count = 1; // 최소 길이는 1이므로 0이 아닌 1로 시작
 
-        for(int i=0; i<n; i++){
-            if(i==0 || arr[i] != arr[i-1]){
+        for (int i = 1; i < n; i++) {
+            if (arr[i] == arr[i - 1]) {
                 count++;
+            } else {
+                maxVal = Math.max(maxVal, count);
+                count = 1; // 새로운 숫자가 나오면 길이를 1부터 다시 시작
             }
         }
 
-        System.out.println(count);
+        maxVal = Math.max(maxVal, count); // 마지막 그룹도 비교
+
+        System.out.println(maxVal);
     }
 }
