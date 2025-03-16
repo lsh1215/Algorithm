@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static final int MAX_T = 100000;
+    public static final int MAX_T = 1000000;
     public static int[] posA = new int[MAX_T+1];
     public static int[] posB = new int[MAX_T+1];
 
