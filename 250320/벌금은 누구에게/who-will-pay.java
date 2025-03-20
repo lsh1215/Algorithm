@@ -1,41 +1,36 @@
 import java.util.Scanner;
 
 public class Main {
+    public static final int MAX_N = 100;
+    public static final int MAX_M = 10000;
+
+    public static int n, m, k;
+    public static int[] penalizedPerson = new int[MAX_M];
+    public static int[] penaltyNum = new int[MAX_N + 1];
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int k = sc.nextInt();
-        int[] penalizedPerson = new int[m];
 
-        for (int i = 0; i < m; i++) {
+        // 입력
+        n = sc.nextInt();
+        m = sc.nextInt();
+        k = sc.nextInt();
+        for(int i = 0; i < m; i++)
             penalizedPerson[i] = sc.nextInt();
-        }
 
-        int[] count = new int[n]; 
-
-        
-        for (int i = 0; i < m; i++) {
-            int person = penalizedPerson[i];
-
-            if (person >= 1 && person <= n) { 
-                count[person - 1]++; // 1-based 인덱스 조정
+        // 각 패널티 횟수를 세서,
+        // 최초로 K번 이상 벌칙을 받는 사람을 추적합니다.
+        int ans = -1;
+        for(int i = 0; i < m; i++) {
+            int target = penalizedPerson[i];
+            penaltyNum[target]++;
+            
+            if(penaltyNum[target] >= k) {
+                ans = target;
+                break;
             }
         }
 
-        boolean found = false; // 벌금을 낸 학생이 있는지 확인하는 플래그
-
-        
-        for (int i = 0; i < n; i++) {
-            if (count[i] >= k) {
-                System.out.println(i + 1);
-                found = true; 
-            }
-        }
-
-        // 벌금을 낸 학생이 없으면 -1 출력
-        if (!found) {
-            System.out.println(-1);
-        }
+        System.out.print(ans);
     }
 }
