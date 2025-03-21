@@ -48,11 +48,20 @@ public class Main {
             }
         }
 
-        int count = -1;
+        int count = 0;
 
-        for(int i=0; i<listA.size()-1; i++){
-            if(listA.get(i) == listB.get(i))
-                count += 1;
+        int maxTime = Math.max(listA.size(), listB.size());
+
+        for (int t = 1; t <= maxTime; t++) {
+            int prevPosA = (t - 1 < listA.size()) ? listA.get(t - 1) : listA.get(listA.size() - 1);
+            int prevPosB = (t - 1 < listB.size()) ? listB.get(t - 1) : listB.get(listB.size() - 1);
+            int curPosA = (t < listA.size()) ? listA.get(t) : listA.get(listA.size() - 1);
+            int curPosB = (t < listB.size()) ? listB.get(t) : listB.get(listB.size() - 1);
+
+
+            if (curPosA == curPosB && prevPosA != prevPosB) {
+                count++;
+            }
         }
 
         System.out.println(count);        
