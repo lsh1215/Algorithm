@@ -38,8 +38,9 @@ public class Main {
                 ny += dy[dirNum];
                 time++;
 
-                if(nx == 0 && ny == 0 && time != 0){
+                if(nx == 0 && ny == 0 && time != 0 && flag == -1){
                     flag = time;
+                    break;
                 }
             }
 
